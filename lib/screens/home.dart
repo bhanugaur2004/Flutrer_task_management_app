@@ -112,7 +112,10 @@ class _HomeState extends State<Home> {
 
   void _addToDoItem(String todo) {
     setState(() {
-      todoList.add(ToDo(id: DateTime.now().millisecondsSinceEpoch.toString(), todoText: todo));
+      if(todo.isNotEmpty){
+        todoList.add(ToDo(id: DateTime.now().millisecondsSinceEpoch.toString(), todoText: todo));
+      }
+      // todoList.add(ToDo(id: DateTime.now().millisecondsSinceEpoch.toString(), todoText: todo));
     });
     _todoController.clear();
   }
